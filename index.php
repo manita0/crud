@@ -15,6 +15,9 @@ if(isset($_POST['submit'])){
     }
     $stmt->close();
 }
+
+// get all users for display
+$res=$con->query("SELECT * FROM users");
 ?>
 
 <!DOCTYPE html>
@@ -55,26 +58,28 @@ if(isset($_POST['submit'])){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Emma</td>
-                        <td>emma@gmail.com</td>
-                        <td>123456</td>
-                        <td>
+
+                    <?php
+                    $counter=1;
+                    if($res->num_rows>0):
+                        while($row=$res->fetch_assoc()):?>
+                        <tr>
+                            <td><?=$counter++?></td>
+                            <td><?=htmlspecialchars($row["name"])?></td>
+                            <td><?=htmlspecialchars($row["email"])?></td>
+                            <td><?=htmlspecialchars($row["phone"])?></td>
+                            <td> 
                             <button class="edit-btn"><i class="fa-solid fa-user-pen"></i></button>
                             <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Lily</td>
-                        <td>lily@gmail.com</td>
-                        <td>789025</td>
-                        <td>
-                            <button class="edit-btn"><i class="fa-solid fa-user-pen"></i></button>
-                            <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                    <?php endwhile;?>       <!-- closes while loop-->
+                    <?php else:?>           <!-- continue of if statement-->
+                        <tr>
+                            <td colspan="5">No data found</td>
+                        </tr>
+                    <?php endif;?>          <!-- closes if statement -->
+                    
                 </tbody>
             </table>
           </div>

@@ -4,8 +4,8 @@ Beginner-friendly PHP CRUD application using MySQL
 ## Features
 - **Create**: Add new users with name, email, and phone
 - **Read**: Display all users in a table
-- **Update**: Coming soon
-- **Delete**: Coming soon
+- **Update**: Edit existing user information
+- **Delete**: Remove users with confirmation
 
 ## Technologies Used
 - PHP
@@ -23,4 +23,12 @@ Beginner-friendly PHP CRUD application using MySQL
 6. Run the application
 
 ## Current Status
-Basic CREATE and READ operations are implemented and working.
+All CRUD operations (Create, Read, Update, Delete) are implemented and working.
+
+## Files Structure
+- `index.php` - Main page with user display and add functionality
+- `update.php` - Edit user information
+- `delete.php` - Delete user functionality
+- `db_connect.php` - Database connection
+- `test_connection.php` - Optional connection test
+- `style.css` - Application styling

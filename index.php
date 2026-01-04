@@ -1,6 +1,7 @@
 <?php
 include 'db_connect.php';
 
+// create operation
 if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $email=$_POST['email'];
@@ -59,6 +60,7 @@ $res=$con->query("SELECT * FROM users");
                 </thead>
                 <tbody>
 
+                    <!-- read operation -->
                     <?php
                     $counter=1;
                     if($res->num_rows>0):
@@ -69,7 +71,7 @@ $res=$con->query("SELECT * FROM users");
                             <td><?=htmlspecialchars($row["email"])?></td>
                             <td><?=htmlspecialchars($row["phone"])?></td>
                             <td> 
-                            <button class="edit-btn"><i class="fa-solid fa-user-pen"></i></button>
+                            <a href="update.php?id=<?=$row['id']?>"  class="edit-btn"><i class="fa-solid fa-user-pen"></i></a>
                             <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                             </td>
                         </tr>

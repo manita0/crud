@@ -72,7 +72,9 @@ $res=$con->query("SELECT * FROM users");
                             <td><?=htmlspecialchars($row["phone"])?></td>
                             <td> 
                             <a href="update.php?id=<?=$row['id']?>"  class="edit-btn"><i class="fa-solid fa-user-pen"></i></a>
-                            <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                            <a href="delete.php?id=<?=$row['id']?>" class="delete-btn" 
+                            onclick = "return confirm('Are you sure you want to delete <?=htmlspecialchars($row['name'])?>?')">
+                            <i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endwhile;?>       <!-- closes while loop-->

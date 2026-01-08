@@ -10,9 +10,3 @@ CREATE TABLE users (
     phone VARCHAR(20) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Step 3: Inserting data directly 
-USE phpCrud;
-INSERT INTO users (name, email, phone) VALUES 
-('Jennie', 'jennie@example.com', '1234567890'),
-('Rose', 'rose@example.com', '0987654321');
